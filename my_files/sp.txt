@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+	<style>
+	div{
+			color:black;
+		}
+		#a{
+			background-color: sandybrown;
+		width:95px;
+		height:45px;
+			border:2px;
+			color: black;
+			font-size:14px;
+			border-radius: 5px;
+		}
+		span{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<h1>蝦皮雙11購物慶</h1>
+	<h2 style=color:red;>刷國泰世華蝦皮卡最高享18%回饋</h2>
+	<div>
+		<p style="font-size:15px;">一年一度的雙11光棍開跑啦!3C產品最低價1折起</p>
+		<p style="font-size:15px;">家電品牌5折起，多款商品限時降價中，</p>
+		<p style="font-size:15px;">趁特惠備齊年份日用品最划算 !</p>
+		<strong>單日滿NT$6,666送</strong><span>NT$666</span><br>
+		<strong>單日滿NT$11,111送</strong><span>NT$1111</span><br>
+		<strong>單日滿NT$36,000送</strong><span>NT$3600</span><br>
+		<br>
+		<a href="http://127.0.0.1:8000/mysite/10003/test/"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRql9qdBDp6PL98DfsqVreFaupzMxZ7keokGg&usqp=CAU" width=375px height=200px alt="圖片消失"></a><br>
+		<strong>蝦皮折價券 → </strong><a href="http://127.0.0.1:8000/mysite/10003/test/"><input id='a' type="button" value="點此領取" ></a>
+	</div>
+</body>
+</html>

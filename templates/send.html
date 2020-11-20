@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block title %}<title>Social Engineering</title>{% endblock %}
+{% block css_style %}
+    body {
+    background: white;
+    }
+
+    .button {
+        text-align: center;
+    }
+    .url{
+        text-align: center;
+    }
+    a{
+    text-decoration: none;
+    }
+{% endblock %}
+{% block func %} {% endblock %}
+{% block content %}
+
+    <h1 style="text-align:center;">Show all information</h1><br>
+    <div class="url" style="text-decoration: none;">
+        <a href="{% url 'add_' %}">Add Mail</a>&emsp;&emsp;
+        <a href="{% url 'del_' %}">Delete Mail</a>&emsp;&emsp;
+        <a href="{% url 'select' %}">Select Mail</a>
+    </div>
+    <br><br><br>
+    <center>
+        <table border="1" cellpadding="10" cellspacing="5" style="text-align: center;">
+            <th width="250px">流水號</th>
+            <th width="250px">員工姓名</th>
+            <th width="250px">信箱</th>
+            <th width="250px">備註</th>
+            {% for d in data %}
+                <tr>
+                    <td align="center" valign="center">{{ d.get_id }}</td>
+                    <td align="center" valign="center">{{ d.name }}</td>
+                    <td align="center" valign="center">{{ d.email }}</td>
+                    <td align="center" valign="center"><a href="/data/personal/{{ d.get_id }}/">Content</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    </center>
+    <br>
+    <form action="{% url 'mail' %}" method="POST">
+        {% csrf_token %}
+        <div class="button">
+            <input type="submit" value="一鍵傳送" style="background-color: cornflowerblue; width: 80px; height:35px;
+                border:2px; color: black; font-size:14px; border-radius: 5px; font-family: 'Microsoft YaHei';">
+        </div>
+    </form>
+
+{% endblock %}

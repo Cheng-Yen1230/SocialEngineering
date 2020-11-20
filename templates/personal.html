@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}<title>Social Engineering | {{ values.name }}</title>{% endblock %}
+    {% block func %}
+
+    {% endblock %}
+</head>
+<body>
+{% block content %}
+
+    <center>
+        <table border="1" cellpadding="10" cellspacing="5" style="text-align: center;">
+            <th width="250px">流水號</th>
+            <th width="250px">員工姓名</th>
+            <th width="250px">信箱</th>
+            <th width="250px">訪問時間</th>
+            <th width="250px">總訪問次數</th>
+            {% for p in pub %}
+                <tr>
+                    <td align="center" valign="center">{{ values.get_id }}</td>
+                    <td align="center" valign="center">{{ values.name }}</td>
+                    <td align="center" valign="center">{{ values.email }}</td>
+                    <td align="center" valign="center">{{ p.pub_time }}</td>
+                    <td align="center" valign="center">{{ values.times }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </center>
+
+{% endblock %}
+</body>
+</html>

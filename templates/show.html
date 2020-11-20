@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+    {% block title %}<title>Social Engineering | Select</title>{% endblock %}
+    {% block css_style %}
+        body {
+            background: white;
+            text-align: center;
+        }
+    {% endblock %}
+{% block func %}
+
+{% endblock %}
+{% block content %}
+<h1>Select Mail</h1><br>
+<form action="{% url 'remail' %}" method="POST">
+    {% csrf_token %}
+    {% for i in data %}
+        <input type="checkbox" name="n" value="{{ i.email }}">{{ i.email }}<br>
+    {% endfor %}
+    <br><br>
+    <center>
+        <table border="1" cellpadding="10" cellspacing="5" style="text-align: center;">
+            <th width="250px">流水號</th>
+            <th width="250px">員工姓名</th>
+            <th width="250px">信箱</th>
+            {% for d in data %}
+                <tr>
+                    <td align="center" valign="center">{{ d.get_id }}</td>
+                    <td align="center" valign="center">{{ d.name }}</td>
+                    <td align="center" valign="center">{{ d.email }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </center>
+    <br>
+    <div class="c1">
+        <input type="submit" value="一鍵傳送" style="background-color: cornflowerblue; width: 80px; height:35px;
+            border:2px; color: black; font-size:14px; border-radius: 5px; font-family: Arial;">
+    </div>
+</form>
+{% endblock %}

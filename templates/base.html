@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    {% load static %}
+    <link rel="icon" href="https://img.icons8.com/ios-filled/72/snake.png" type="image/x-icon"/>
+    {% block title %}<title>Document</title>{% endblock %}
+</head>
+<style type="text/css">
+
+    * {
+        margin: 0px;                /* 邊界0 */
+        padding: 0px;               /* 文字邊界 */
+
+    }
+    #nav {
+        height: 120px;              /* 導航欄高度 */
+        width: 100%;                /* 導航欄寬度 */
+        background: #292421;
+        margin: 0 auto;             /*  上下左右  */
+        margin-bottom: 100px;       /*  邊界重疊  */
+        font-size: 20px;
+    }
+
+    #nav ul {
+
+        list-style: none;           /*  不設置樣式  */
+    }
+
+    #nav ul li {
+        float: left;                /*  ***** 導航欄靠左 ***** */
+        width: 200px;
+        line-height: 95px;          /*    行高    */
+        text-align: center;         /*    置中    */
+
+    }
+
+
+    #nav ul li a {
+        text-decoration: none;      /*   無下滑線   */
+        color: white;
+        padding: 10px;
+        display: block;             /*    區塊     */
+    }
+
+
+    /* 在一級選單中，滑鼠放上去的樣式 */
+    #nav ul li a:hover {
+        color: cornflowerblue;
+
+    }
+
+    #naa {
+
+        background-color: #292421; /*#FFC0CB #B8A1CF */
+        text-align: center;
+        list-style: none;
+        z-index: 10 ! important;
+        width:100%;
+        height:110px;
+        position:absolute;
+        bottom:0;
+
+        {% block func %}
+
+        {% endblock %}
+    }
+
+    #naa ul {
+
+        list-style: none;           /*  不設置樣式  */
+    }
+
+    #naa ul li a {
+        text-decoration: none;      /*   無下滑線   */
+        color: white;
+        padding: 5px 10px;
+        display: block;             /*    區塊     */
+    }
+
+    #naa ul li {
+        float: left;                /*  ***** 導航欄靠左 ***** */
+        width: 200px;
+        line-height: 100px;         /*    行高    */
+        text-align: center;         /*    置中    */
+        position: absolute;
+
+    }
+
+    {% block css_style %}
+
+    {% endblock %}
+    body {
+            font-family: 'Microsoft Yahei';
+            background-color: #eee;
+            padding-bottom: 145px;
+            box-sizing: border-box;
+            position: absolute;
+            width: 100%;
+            min-height: 100%;
+    }
+</style>
+</head>
+<body>
+
+<div id="nav">
+    <ul>
+        <li><a href="{% url 'show' %}" style="font-size: 25px">社交工程</a></li>
+        <li><a href="">Home</a></li>
+        <li><a href="">About</a></li>
+        <li><a href="{% url 'data' %}">Background data</a></li>
+    </ul>
+</div>
+{% block content %}
+
+{% endblock %}
+<footer>
+    <div id="naa">
+        <br>
+        <br>
+        <p style="color: #eeeeee">Copyright© 2020 harryTsai all rights reserved</p>
+        <br>
+        <br>
+    </div>
+</footer>
+</body>
+</html>

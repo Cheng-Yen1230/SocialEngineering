@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}<title>Social Engineering | Delete</title>{% endblock %}
+
+{% block css_style %}
+    body{
+    text-align: center;
+    }
+{% endblock %}
+{% block func %}
+
+{% endblock %}
+{% block content %}
+
+    <h1>刪除郵件</h1><br>
+    <form action="{% url 'del_' %}" method="POST">
+        {% csrf_token %}
+        <div>
+            <label>流水號: <input type="text" name="id_del" required></label>
+            <label>員工姓名: <input type="text" name="name" required></label>
+            <label>信箱: <input type="email" name="mail" required></label>
+            <input type="submit" value="刪除">&emsp;<input type="reset" value="清除"/>
+        </div>
+        <br><br><br>
+    </form>
+    <center>
+        <table border="1" cellpadding="10" cellspacing="5" style="text-align: center;">
+            <th width="250px">流水號</th>
+            <th width="250px">員工姓名</th>
+            <th width="250px">信箱</th>
+            {% for d in data %}
+                <tr>
+                    <td align="center" valign="center">{{ d.get_id }}</td>
+                    <td align="center" valign="center">{{ d.name }}</td>
+                    <td align="center" valign="center">{{ d.email }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </center>
+
+{% endblock %}

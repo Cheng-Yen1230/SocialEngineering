@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}<title>Social Engineering | Data</title>{% endblock %}
+{% block css_style %}
+    body {
+    background: white;
+    }
+{% endblock %}
+{% block func %}
+
+ {% endblock %}
+{% block content %}
+
+    <h2 style="text-align:center;">後台數據</h2><br>
+    <center>
+        <table border="1" cellpadding="10" cellspacing="5" style="text-align: center;">
+            <th width="250px">流水號</th>
+            <th width="250px">員工姓名</th>
+            <th width="250px">信箱</th>
+            <th width="250px">訪問時間</th>
+            {% for bg in bg_data %}
+                <tr>
+                    <td align="center" valign="center">{{ bg.num_id }}</td>
+                    <td align="center" valign="center">{{ bg.num.name }}</td>
+                    <td align="center" valign="center">{{ bg.num.email }}</td>
+                    <td align="center" valign="center">{{ bg.pub_time }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </center>
+
+{% endblock %}
