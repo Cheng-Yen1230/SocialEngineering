@@ -29,7 +29,7 @@ def login(request):
         else:
             return render(request, 'login.html')
 
-    
+
 
 def verification(func):
     def wrapper(*args, **kwargs):

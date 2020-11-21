@@ -22,7 +22,7 @@ pwd = 'nltxdcaufofltqmk'
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'da_r9zoh*2*^&o%he77kgrw15&=%$n)z3j#x^_rt2m^z6vk)rh'
-
+SESSION_EXPIRE_AT_BROWSER_CLOSE =  True
 # SECURITY WARNING: don't run with debug turned on in production!
 
 DEBUG = False
