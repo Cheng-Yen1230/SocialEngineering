@@ -24,9 +24,9 @@ pwd = 'nltxdcaufofltqmk'
 SECRET_KEY = 'da_r9zoh*2*^&o%he77kgrw15&=%$n)z3j#x^_rt2m^z6vk)rh'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['https://harrytsai.herokuapp.com/']
 
 # Application definition
 
