@@ -31,13 +31,13 @@ def login(request):
 
     
 
-def verification(request, func):
+def verification(func):
     def wrapper(*args, **kwargs):
         global islogin
         if islogin:
             return func(*args, **kwargs)
         else:
-            return render(request, 'nologin.html')
+            return redirect(reverse('login'))
     return wrapper
 
 
