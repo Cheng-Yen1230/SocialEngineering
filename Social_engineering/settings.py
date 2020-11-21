@@ -26,7 +26,7 @@ SECRET_KEY = 'da_r9zoh*2*^&o%he77kgrw15&=%$n)z3j#x^_rt2m^z6vk)rh'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -74,16 +74,16 @@ WSGI_APPLICATION = 'Social_engineering.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 import dj_database_url
-
 DATABASES = {
-    'default': dj_database_url.config()
+    'default':dj_database_url.config()
 
-    # 'NAME': 'mydb2',
-    # 'USER': 'postgres',
-    # 'PASSWORD': '0000',
-    # 'PORT': '5432',
-    # 'HOST': 'localhost'
-}
+        # 'NAME': 'mydb2',
+        # 'USER': 'postgres',
+        # 'PASSWORD': '0000',
+        # 'PORT': '5432',
+        # 'HOST': 'localhost'
+    }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -135,7 +135,7 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIR = [
     os.path.join(BASE_DIR, 'static'),
     os.path.join(BASE_DIR, 'my_files'),
