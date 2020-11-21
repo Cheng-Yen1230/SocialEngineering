@@ -19,28 +19,25 @@ islogin = False
 def login(request):
     if request.method == 'GET':
         return render(request, 'login.html')
-    if request.method == 'POST':
-        username = request.POST.get('username', '')
-        password = request.POST.get('password', '')
-        if username == 'Harry' and password == '1230':
+    else:
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        if username == 'Harry' and password == '12301230':
             global islogin
             islogin = True
             return redirect(reverse('show'))
         else:
             return render(request, 'login.html')
 
+    
 
-def verification(func):
+def verification(request, func):
     def wrapper(*args, **kwargs):
         global islogin
         if islogin:
             return func(*args, **kwargs)
         else:
-            from time import sleep
-            print("用戶尚未登入")
-            print("即將跳轉登入頁面...")
-            sleep(1)
-            return redirect(reverse('login'))
+            return render(request, 'nologin.html')
     return wrapper
 
 
