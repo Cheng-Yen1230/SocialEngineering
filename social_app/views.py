@@ -16,24 +16,28 @@ from social_app.models import Email, Data
 islogin = False
 
 
+
 def login(request):
     if request.method == 'GET':
-        return render(request, 'login.html')
+        from random import sample
+        code = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        rcode = ''.join(sample(code, 4))
+        return render(request, 'login.html', {'rcode': rcode})
     else:
         username = request.POST.get('username')
         password = request.POST.get('password')
-        if username == 'Harry' and password == '12301230':
+        code = request.POST.get('code1')
+        if username == 'harry123' and password == 'AaAa0000' and code == '比目魚肌腺':
             global islogin
             islogin = True
             return redirect(reverse('show'))
         else:
-            return render(request, 'login.html')
+            return redirect(reverse('login'))
 
 
 
 def verification(func):
     def wrapper(*args, **kwargs):
-        global islogin
         if islogin:
             return func(*args, **kwargs)
         else:

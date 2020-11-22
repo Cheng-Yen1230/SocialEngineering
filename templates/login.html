@@ -86,7 +86,7 @@
     }
 
     body {
-            font-family: 'Microsoft Yahei';
+            font-family: 'Comic Sans MS';
             background-color: #eee;
             padding-bottom: 145px;
             box-sizing: border-box;
@@ -95,39 +95,53 @@
             min-height: 100%;
             text-align: center;
     }
+    .cls{
+        margin-left: 300px;
+    }
+    .log{
+        margin-left: -200px;
+    }
+    
+
 </style>
 </head>
 <body>
 <div id="nav">
     <ul>
-        <li><a href="" style="font-size: 35px">LOGIN</a></li>
+        <li><a href="" style="font-size: 35px" >LOGIN</a></li>
     </ul>
 </div>
 
 
 <div class="cls">
-    <img src="https://www.securitysales.com/wp-content/uploads/2019/09/AdobeStock_182344447.jpeg">
-    <br>
-    <br>
+    <img align=left src="https://www.securitysales.com/wp-content/uploads/2019/09/AdobeStock_182344447.jpeg" width=600px>
+</div><br><br><br>
+    <div class='log'>
     <h1 style="text-align: center;">Please enter the your account</h1><br><br>
     <form action="{% url 'login' %}" method="post">
         {% csrf_token %}
-        <label style="font-size: 18px"><b>Username: </b>
-            <input style="height: 28px; font-size: 20px;" type="text" name="username">
-        </label><br><br>
-        <label style="font-size: 18px"><b>Password: </b>
+        <div>
+            <label style="font-size: 18px"><b>Username:&emsp;</b>
+                <input style="height: 28px; font-size: 20px;" type="text" name="username">
+            </label><br><br>
+        <label style="font-size: 18px"><b>Password:&emsp;</b>
             <input style="height: 28px; font-size: 20px;" type="password" name="password">
         </label><br><br>
+        <label style="font-size: 18px"><b>Verification code:&emsp;</b>
+            <input style="height: 28px; font-size: 20px;" type="text" name="code1">&emsp;<b style=color:red;>{{rcode}}</b>
+        </label><br><br>
         <input style="background-color: black; width: 80px; height:35px;
-               border:2px; color: white; font-size:18px; border-radius: 5px; font-family: 'Microsoft YaHei';"
-               type="submit" value="Sign in">
+            border:2px; color: white; font-size:18px; border-radius: 5px; font-family: 'Comic Sans MS';"
+            type="submit" value="Sign in">
+        </div>
+    </div>
     </form>
 </div>
 
 <footer>
     <div id="naa">
         <br><br>
-        <p style="color: #eeeeee">Copyright© 2020 harryTsai All rights reserved</p>
+        <p style="color: #eeeeee" >Copyright© 2020 harryTsai All rights reserved</p>
         <br>
         <br>
     </div>
