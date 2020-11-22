@@ -28,7 +28,7 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE =  True
 SESSION_COOKIE_AGE = 60 * 5
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
