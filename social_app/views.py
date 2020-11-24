@@ -16,6 +16,13 @@ from social_app.models import Email, Data
 islogin = False
 
 
+def verification(func):
+    def wrapper(*args, **kwargs):
+        if islogin:
+            return func(*args, **kwargs)
+        else:
+            return redirect(reverse('login'))
+    return wrapper
 
 def login(request):
     if request.method == 'GET':
@@ -33,16 +40,6 @@ def login(request):
             return redirect(reverse('show'))
         else:
             return redirect(reverse('login'))
-
-
-
-def verification(func):
-    def wrapper(*args, **kwargs):
-        if islogin:
-            return func(*args, **kwargs)
-        else:
-            return redirect(reverse('login'))
-    return wrapper
 
 
 @verification

@@ -1,9 +1,8 @@
-<!doctype html>
+<!Doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport">
-    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
     {% load static %}
         <link rel="icon" href="https://img.icons8.com/ios-filled/72/snake.png" type="image/x-icon"/>
     {% block title %}<title>Login Page | 登入</title>{% endblock %}
@@ -16,12 +15,13 @@
 
     }
     #nav {
-        height: 100px;              /* 導航欄高度 */
+        height: 125px;              /* 導航欄高度 */
         width: 100%;                /* 導航欄寬度 */
-        background: #292421;
+        background: #69c5b1;
         margin: 0 auto;             /*  上下左右  */
-        margin-bottom: 100px;       /*  邊界重疊  */
+        margin-bottom: 95px;       /*  邊界重疊  */
         font-size: 20px;
+        font-family: "Papyrus";
     }
 
     #nav ul {
@@ -32,7 +32,7 @@
     #nav ul li {
         float: left;                /*  ***** 導航欄靠左 ***** */
         width: 200px;
-        line-height: 80px;          /*    行高    */
+        line-height: 105px;          /*    行高    */
         text-align: center;         /*    置中    */
 
     }
@@ -48,13 +48,13 @@
 
     /* 在一級選單中，滑鼠放上去的樣式 */
     #nav ul li a:hover {
-        color: black;
+        color: #1f3731;
 
     }
 
     #naa {
 
-        background-color: #292421; /*#FFC0CB #B8A1CF */
+        background-color: #288a78; /*#FFC0CB #B8A1CF */
         text-align: center;
         list-style: none;
         z-index: 10 ! important;
@@ -86,7 +86,7 @@
     }
 
     body {
-            font-family: 'Comic Sans MS';
+            font-family: 'Papyrus';
             background-color: #eee;
             padding-bottom: 145px;
             box-sizing: border-box;
@@ -96,10 +96,13 @@
             text-align: center;
     }
     .cls{
-        margin-left: 300px;
+        margin-left: 350px;
+
     }
     .log{
-        margin-left: -200px;
+
+        margin-left:700px;
+        text-align: left;
     }
     
 
@@ -108,34 +111,35 @@
 <body>
 <div id="nav">
     <ul>
-        <li><a href="" style="font-size: 35px" >LOGIN</a></li>
+        <li><a href="" style="font-size: 35px;"><b>LOGIN</b></a></li>
     </ul>
 </div>
-
-
 <div class="cls">
-    <img align=left src="https://www.securitysales.com/wp-content/uploads/2019/09/AdobeStock_182344447.jpeg" width=600px>
-</div><br><br><br>
+    <br><br><br>
+    <div>
+        <img align=left src="https://specials-images.forbesimg.com/imageserve/5f1bb34ef850f97f3e202c56/960x0.jpg?fit=scale" width=600px>
+    </div>
+     <br>
     <div class='log'>
-    <h1 style="text-align: center;">Please enter the your account</h1><br><br>
+        <h1 >Please enter the your account</h1><br><br>
     <form action="{% url 'login' %}" method="post">
         {% csrf_token %}
         <div>
-            <label style="font-size: 18px"><b>Username:&emsp;</b>
-                <input style="height: 28px; font-size: 20px;" type="text" name="username">
+            <label style="font-size: 18px"><b>Username:</b>
+                <input style="height: 30px; font-size: 20px;" type="text" name="username">
             </label><br><br>
-        <label style="font-size: 18px"><b>Password:&emsp;</b>
-            <input style="height: 28px; font-size: 20px;" type="password" name="password">
+        <label style="font-size: 18px"><b>Password: </b>
+            <input style="height: 30px; font-size: 20px;" type="password" name="password">
         </label><br><br>
-        <label style="font-size: 18px"><b>Verification code:&emsp;</b>
-            <input style="height: 28px; font-size: 20px;" type="text" name="code1">&emsp;<b style=color:red;>{{rcode}}</b>
-        </label><br><br>
+        <label style="font-size: 18px"><b>Verification Code: </b>
+            <input style="height: 30px; width:25px font-size: 20px;" type="text" name="code1">&emsp;<b style=color:red;>{{rcode}}</b>
+        </label><br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
         <input style="background-color: black; width: 80px; height:35px;
             border:2px; color: white; font-size:18px; border-radius: 5px; font-family: 'Comic Sans MS';"
             type="submit" value="Sign in">
         </div>
-    </div>
     </form>
+    </div>
 </div>
 
 <footer>
