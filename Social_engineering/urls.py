@@ -23,5 +23,6 @@ urlpatterns = [
     path('show/', include('social_app.urls')),   # email
     path('data/', include('social_app.urls')),
     path('login/', include('social_app.urls')),
+    path('about/', views.about, name='about'),
 
 ]

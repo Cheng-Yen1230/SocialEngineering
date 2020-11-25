@@ -17,11 +17,11 @@
     #nav {
         height: 125px;              /* 導航欄高度 */
         width: 100%;                /* 導航欄寬度 */
-        background: #69c5b1;
+        background: #00477D;
         margin: 0 auto;             /*  上下左右  */
         margin-bottom: 95px;       /*  邊界重疊  */
         font-size: 20px;
-        font-family: "Papyrus";
+        font-family: "Microsoft JhengHei UI";
     }
 
     #nav ul {
@@ -48,13 +48,13 @@
 
     /* 在一級選單中，滑鼠放上去的樣式 */
     #nav ul li a:hover {
-        color: #1f3731;
+        color: black;
 
     }
 
     #naa {
 
-        background-color: #288a78; /*#FFC0CB #B8A1CF */
+        background-color: #082567; /*#FFC0CB #B8A1CF */
         text-align: center;
         list-style: none;
         z-index: 10 ! important;
@@ -86,7 +86,7 @@
     }
 
     body {
-            font-family: 'Papyrus';
+            font-family: 'Microsoft JhengHei UI';
             background-color: #eee;
             padding-bottom: 145px;
             box-sizing: border-box;
@@ -104,7 +104,12 @@
         margin-left:700px;
         text-align: left;
     }
-    
+    .rimg{
+
+        height: auto;
+        max-width: 100%;
+
+    }
 
 </style>
 </head>
@@ -115,11 +120,11 @@
     </ul>
 </div>
 <div class="cls">
-    <br><br><br>
-    <div>
+    <br><br><br><br>
+    <div class="rimg">
         <img align=left src="https://specials-images.forbesimg.com/imageserve/5f1bb34ef850f97f3e202c56/960x0.jpg?fit=scale" width=600px>
     </div>
-     <br>
+     <br><br>
     <div class='log'>
         <h1 >Please enter the your account</h1><br><br>
     <form action="{% url 'login' %}" method="post">
@@ -133,7 +138,7 @@
         </label><br><br>
         <label style="font-size: 18px"><b>Verification Code: </b>
             <input style="height: 30px; width:25px font-size: 20px;" type="text" name="code1">&emsp;<b style=color:red;>{{rcode}}</b>
-        </label><br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+        </label><br><br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
         <input style="background-color: black; width: 80px; height:35px;
             border:2px; color: white; font-size:18px; border-radius: 5px; font-family: 'Comic Sans MS';"
             type="submit" value="Sign in">
@@ -144,7 +149,7 @@
 
 <footer>
     <div id="naa">
-        <br><br>
+        <br><br><br>
         <p style="color: #eeeeee" >Copyright© 2020 harryTsai All rights reserved</p>
         <br>
         <br>

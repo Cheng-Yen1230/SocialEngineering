@@ -6,7 +6,6 @@ from django.core.mail import EmailMultiAlternatives
 from django.template import loader
 from social_app.models import Email, Data
 
-
 # https://docs.djangoproject.com/en/3.1/topics/email/
 # https://docs.djangoproject.com/en/3.1/ref/templates/api/#django.template.Template.render
 
@@ -22,24 +21,33 @@ def verification(func):
             return func(*args, **kwargs)
         else:
             return redirect(reverse('login'))
+
     return wrapper
 
+
 def login(request):
+    global islogin
     if request.method == 'GET':
-        from random import sample
-        code = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        rcode = ''.join(sample(code, 4))
-        return render(request, 'login.html', {'rcode': rcode})
+        if islogin:
+            return redirect(reverse('show'))
+        else:
+            from random import sample
+            code = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+            rcode = ''.join(sample(code, 4))
+            return render(request, 'login.html', {'rcode': rcode})
     else:
         username = request.POST.get('username')
         password = request.POST.get('password')
         code = request.POST.get('code1')
         if username == 'harry123' and password == 'AaAa0000' and code == '比目魚肌腺':
-            global islogin
             islogin = True
             return redirect(reverse('show'))
         else:
             return redirect(reverse('login'))
+
+
+def about(request):
+    return render(request, 'about.html')
 
 
 @verification

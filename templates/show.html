@@ -13,17 +13,16 @@
 <h1>Select Mail</h1><br>
 <form action="{% url 'remail' %}" method="POST">
     {% csrf_token %}
-    {% for i in data %}
-        <input type="checkbox" name="n" value="{{ i.email }}">{{ i.email }}<br>
-    {% endfor %}
     <br><br>
     <center>
         <table border="1" cellpadding="10" cellspacing="5" style="text-align: center;">
+            <th width="250px">Box</th>
             <th width="250px">流水號</th>
             <th width="250px">員工姓名</th>
             <th width="250px">信箱</th>
             {% for d in data %}
                 <tr>
+                    <td><input type="checkbox" value="{{ d.email }}"></td>
                     <td align="center" valign="center">{{ d.get_id }}</td>
                     <td align="center" valign="center">{{ d.name }}</td>
                     <td align="center" valign="center">{{ d.email }}</td>
