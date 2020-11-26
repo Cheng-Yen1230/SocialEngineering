@@ -5,6 +5,7 @@ from django.conf import settings
 from django.core.mail import EmailMultiAlternatives
 from django.template import loader
 from social_app.models import Email, Data
+from django.contrib import auth
 
 # https://docs.djangoproject.com/en/3.1/topics/email/
 # https://docs.djangoproject.com/en/3.1/ref/templates/api/#django.template.Template.render
@@ -27,27 +28,44 @@ def verification(func):
 
 def login(request):
     global islogin
-    if request.method == 'GET':
-        if islogin:
-            return redirect(reverse('show'))
-        else:
-            from random import sample
-            code = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-            rcode = ''.join(sample(code, 4))
-            return render(request, 'login.html', {'rcode': rcode})
+    if request.user.is_authenticated:
+        return redirect(reverse('show'))
+    username = request.POST.get('username', '')
+    password = request.POST.get('password', '')
+    code = request.POST.get('code1', '')
+    user = auth.authenticate(username=username, password=password)
+    if user is not None and user.is_active and code == '比目魚肌腺':
+        auth.login(request, user)
+        islogin = True
+        return redirect(reverse('show'))
     else:
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        code = request.POST.get('code1')
-        print(username, password, code)
-        if username == 'harry123' and password == 'AaAa0000' and code == '比目魚肌腺':
-            islogin = True
-            print(123)
-            return redirect(reverse('show'))
-        else:
-            return redirect(reverse('login'))
+        from random import sample
+        code = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        rcode = ''.join(sample(code, 4))
+        return render(request, 'login.html', {'rcode': rcode})
 
 
+# def login(request):
+#     global islogin
+#     if request.method == 'GET':
+#         if islogin:
+#             return redirect(reverse('show'))
+#         else:
+#             from random import sample
+#             code = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+#             rcode = ''.join(sample(code, 4))
+#             return render(request, 'login.html', {'rcode': rcode})
+#     else:
+#         username = request.POST.get('username')
+#         password = request.POST.get('password')
+#         code = request.POST.get('code1')
+#         if username == 'harry123' and password == 'AaAa0000' and code == '比目魚肌腺':
+#             islogin = True
+#             return redirect(reverse('show'))
+#         else:
+#             return redirect(reverse('login'))
+
+@verification
 def about(request):
     return render(request, 'about.html')
 
