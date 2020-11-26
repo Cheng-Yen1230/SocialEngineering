@@ -39,8 +39,10 @@ def login(request):
         username = request.POST.get('username')
         password = request.POST.get('password')
         code = request.POST.get('code1')
+        print(username, password, code)
         if username == 'harry123' and password == 'AaAa0000' and code == '比目魚肌腺':
             islogin = True
+            print(123)
             return redirect(reverse('show'))
         else:
             return redirect(reverse('login'))
