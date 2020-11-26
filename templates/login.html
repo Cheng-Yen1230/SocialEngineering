@@ -96,13 +96,8 @@
             text-align: center;
     }
     .cls{
-        margin-left: 350px;
+        text-align: center;
 
-    }
-    .log{
-
-        margin-left:700px;
-        text-align: left;
     }
 </style>
 </head>
@@ -113,8 +108,6 @@
     </ul>
 </div>
 <div class="cls">
-    <br><br><br><br>
-    <img style="height: auto; max-width: 100%;" align=left src="https://specials-images.forbesimg.com/imageserve/5f1bb34ef850f97f3e202c56/960x0.jpg?fit=scale" width=600px>
      <br><br>
     <div class='log'>
         <h1 >Please enter the your account</h1><br><br>
@@ -122,16 +115,16 @@
         {% csrf_token %}
         <div>
             <label style="font-size: 18px"><b>Username:</b>
-                <input style="height: 30px; font-size: 20px;" type="text" name="username">
+                <input style="height: 32px; font-size: 20px;" type="text" name="username">
             </label><br><br>
         <label style="font-size: 18px"><b>Password: </b>
-            <input style="height: 30px; font-size: 20px;" type="password" name="password">
+            <input style="height: 32px; font-size: 20px;" type="password" name="password">
         </label><br><br>
-        <label style="font-size: 18px"><b>Verification Code: </b>
-            <input style="height: 30px; width:25px font-size: 20px;" type="text" name="code1">&emsp;<b style=color:red;>{{rcode}}</b>
-        </label><br><br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-        <input style="background-color: black; width: 80px; height:35px;
-            border:2px; color: white; font-size:18px; border-radius: 5px; font-family: 'Comic Sans MS';"
+        <label style="font-size: 18px"><b> Verification Code: </b>
+            <input style="height: 32px;  font-size: 20px;" type="text" name="code1">&emsp;<b style=color:red;>{{rcode}}</b>
+        </label><br><br><br>&emsp;&emsp;
+        <input style="background-color: black; width: 300px; height:40px;
+            border:2px; color: white; font-size:18px; border-radius: 5px; font-family: 'Microsoft Yahei';"
             type="submit" value="Sign in">
         </div>
     </form>
