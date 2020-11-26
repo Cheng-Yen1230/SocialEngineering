@@ -24,5 +24,7 @@ urlpatterns = [
     path('data/', include('social_app.urls')),
     path('login/', include('social_app.urls')),
     path('about/', views.about, name='about'),
+    path('captcha/', include('captcha.urls'))
+
 
 ]

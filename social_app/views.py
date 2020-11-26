@@ -7,29 +7,38 @@ from django.template import loader
 from social_app.models import Email, Data
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
+from social_app.forms import captcha_class
+
+
 # https://docs.djangoproject.com/en/3.1/topics/email/
 # https://docs.djangoproject.com/en/3.1/ref/templates/api/#django.template.Template.render
 
-# Create your views here.
-
+# Create your views here
 
 def login(request):
     if request.user.is_authenticated:
         return redirect(reverse('show'))
     username = request.POST.get('username', '')
     password = request.POST.get('password', '')
-    code = request.POST.get('code1', '')
     user = auth.authenticate(username=username, password=password)
-    if user is not None and user.is_active and code == '比目魚肌腺':
-        auth.login(request, user)
-        return redirect(reverse('show'))
+    if user is not None and user.is_active:
+        captcha_ = captcha_class(request.POST)
+        if captcha_.is_valid():
+            auth.login(request, user)
+            return redirect(reverse('show'))
+        else:
+            error = '驗證碼錯誤'
+            captcha = captcha_class()
+            return render(request, 'login.html', {'error': error, "captcha": captcha})
     else:
         if request.user.is_authenticated:
             return redirect(reverse('show'))
-        from random import sample
-        code = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        rcode = ''.join(sample(code, 4))
-        return render(request, 'login.html', {'rcode': rcode})
+        # from random import sample
+        # code = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        # rcode = ''.join(sample(code, 4))
+        else:
+            captcha = captcha_class()
+            return render(request, "login.html", {"captcha": captcha})
 
 
 @login_required

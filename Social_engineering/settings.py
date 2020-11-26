@@ -29,8 +29,12 @@ SESSION_COOKIE_AGE = 60 * 30
 # SECURITY WARNING: don't run with debug turned on in production!
 
 DEBUG = False
+
 ALLOWED_HOSTS = ['*']
 LOGIN_URL = '/login/'
+CAPTCHA_CHALLENGE_FUNCT = 'captcha.helpers.math_challenge'
+CAPTCHA_FOREGROUND_COLOR = 'purple'
+# CAPTCHA_LENGTH = 8
 # Application definition
 
 INSTALLED_APPS = [
@@ -40,7 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'social_app'
+    'social_app',
+    'captcha',
 ]
 
 MIDDLEWARE = [

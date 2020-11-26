@@ -97,7 +97,10 @@
     }
     .cls{
         text-align: center;
-
+    }
+    #id_captcha_1{
+        width: 80px;
+        height: 30px;
     }
 </style>
 </head>
@@ -108,21 +111,23 @@
     </ul>
 </div>
 <div class="cls">
-     <br><br>
     <div class='log'>
         <h1 >Please enter the your account</h1><br><br>
     <form action="{% url 'login' %}" method="post">
         {% csrf_token %}
         <div>
-            <label style="font-size: 18px"><b>Username:</b>
+            <label style="font-size: 18px">Username :
                 <input style="height: 32px; font-size: 20px;" type="text" name="username">
             </label><br><br>
-        <label style="font-size: 18px"><b>Password: </b>
+        <label style="font-size: 18px">Password :
             <input style="height: 32px; font-size: 20px;" type="password" name="password">
         </label><br><br>
-        <label style="font-size: 18px"><b> Verification Code: </b>
-            <input style="height: 32px;  font-size: 20px;" type="text" name="code1">&emsp;<b style=color:red;>{{rcode}}</b>
-        </label><br><br><br>&emsp;&emsp;
+        <div class="code">
+        <label style="font-size: 18px;">
+            {{ captcha.captcha.label_tag }}
+            {{ captcha.captcha }}&emsp;<b style="color:red;">{{ error }}</b><br>
+        </label><br><br><br>
+        </div>
         <input style="background-color: black; width: 300px; height:40px;
             border:2px; color: white; font-size:18px; border-radius: 5px; font-family: 'Microsoft Yahei';"
             type="submit" value="Sign in">
