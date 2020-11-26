@@ -25,13 +25,12 @@ SECRET_KEY = 'da_r9zoh*2*^&o%he77kgrw15&=%$n)z3j#x^_rt2m^z6vk)rh'
 
 SESSION_EXPIRE_AT_BROWSER_CLOSE =  True
 
-SESSION_COOKIE_AGE = 60 * 5
+SESSION_COOKIE_AGE = 60 * 30
 # SECURITY WARNING: don't run with debug turned on in production!
 
 DEBUG = False
-
 ALLOWED_HOSTS = ['*']
-
+LOGIN_URL = '/login/'
 # Application definition
 
 INSTALLED_APPS = [

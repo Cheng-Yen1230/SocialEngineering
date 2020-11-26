@@ -6,28 +6,14 @@ from django.core.mail import EmailMultiAlternatives
 from django.template import loader
 from social_app.models import Email, Data
 from django.contrib import auth
-
+from django.contrib.auth.decorators import login_required
 # https://docs.djangoproject.com/en/3.1/topics/email/
 # https://docs.djangoproject.com/en/3.1/ref/templates/api/#django.template.Template.render
 
 # Create your views here.
 
 
-islogin = False
-
-
-def verification(func):
-    def wrapper(*args, **kwargs):
-        if islogin:
-            return func(*args, **kwargs)
-        else:
-            return redirect(reverse('login'))
-
-    return wrapper
-
-
 def login(request):
-    global islogin
     if request.user.is_authenticated:
         return redirect(reverse('show'))
     username = request.POST.get('username', '')
@@ -36,7 +22,6 @@ def login(request):
     user = auth.authenticate(username=username, password=password)
     if user is not None and user.is_active and code == '比目魚肌腺':
         auth.login(request, user)
-        islogin = True
         return redirect(reverse('show'))
     else:
         if request.user.is_authenticated:
@@ -47,12 +32,12 @@ def login(request):
         return render(request, 'login.html', {'rcode': rcode})
 
 
-@verification
+@login_required
 def about(request):
     return render(request, 'about.html')
 
 
-@verification
+@login_required
 def index(request, num):
     try:
         if result := Email.objects.get(get_id=num):
@@ -66,7 +51,7 @@ def index(request, num):
 
 
 #  郵件寄送
-@verification
+@login_required
 def mail(request):
     if request.method == 'GET':
         from social_app.models import Email
@@ -95,7 +80,7 @@ def mail(request):
 
 
 # 郵件寄送 2
-@verification
+@login_required
 def remail(request):
     if request.method == "POST":
         data_list = request.POST.getlist('n')
@@ -123,7 +108,7 @@ def remail(request):
 
 
 # 新增郵件
-@verification
+@login_required
 def set_add(request):
     if request.method == 'GET':
         data = Email.objects.all()
@@ -144,7 +129,7 @@ def set_add(request):
 
 
 # 刪除郵件
-@verification
+@login_required
 def set_delete(request):
     if request.method == 'GET':
         data = Email.objects.all()
@@ -162,28 +147,28 @@ def set_delete(request):
 
 
 # 顯示所有郵件資料
-@verification
+@login_required
 def show(request):
     data = Email.objects.all()
     return render(request, 'send.html', {'data': data})
 
 
 # 選取寄送郵件
-@verification
+@login_required
 def select(request):
     data = Email.objects.all()
     return render(request, 'show.html', locals())
 
 
 # 後台數據
-@verification
+@login_required
 def data(request):
     bg_data = Data.objects.all()
     return render(request, 'data.html', locals())
 
 
 # 個人詳細資料
-@verification
+@login_required
 def personal(request, num):
     if values := Email.objects.get(get_id=num):
         pass
