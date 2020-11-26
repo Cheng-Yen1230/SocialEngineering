@@ -39,31 +39,13 @@ def login(request):
         islogin = True
         return redirect(reverse('show'))
     else:
+        if request.user.is_authenticated:
+            return redirect(reverse('show'))
         from random import sample
         code = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
         rcode = ''.join(sample(code, 4))
         return render(request, 'login.html', {'rcode': rcode})
 
-
-# def login(request):
-#     global islogin
-#     if request.method == 'GET':
-#         if islogin:
-#             return redirect(reverse('show'))
-#         else:
-#             from random import sample
-#             code = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-#             rcode = ''.join(sample(code, 4))
-#             return render(request, 'login.html', {'rcode': rcode})
-#     else:
-#         username = request.POST.get('username')
-#         password = request.POST.get('password')
-#         code = request.POST.get('code1')
-#         if username == 'harry123' and password == 'AaAa0000' and code == '比目魚肌腺':
-#             islogin = True
-#             return redirect(reverse('show'))
-#         else:
-#             return redirect(reverse('login'))
 
 @verification
 def about(request):
