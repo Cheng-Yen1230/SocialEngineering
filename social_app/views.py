@@ -33,9 +33,6 @@ def login(request):
     else:
         if request.user.is_authenticated:
             return redirect(reverse('show'))
-        # from random import sample
-        # code = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        # rcode = ''.join(sample(code, 4))
         else:
             captcha = captcha_class()
             return render(request, "login.html", {"captcha": captcha})
