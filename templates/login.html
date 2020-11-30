@@ -19,7 +19,7 @@
         width: 100%;                /* 導航欄寬度 */
         background: #00477D;
         margin: 0 auto;             /*  上下左右  */
-        margin-bottom: 95px;       /*  邊界重疊  */
+        margin-bottom: 60px;       /*  邊界重疊  */
         font-size: 20px;
         font-family: "Microsoft JhengHei UI";
     }
@@ -112,7 +112,7 @@
 </div>
 <div class="cls">
     <div class='log'>
-        <h1 >Please enter the your account</h1><br><br>
+        <h1 >社交工程登入系統</h1><br><br>
     <form action="{% url 'login' %}" method="post">
         {% csrf_token %}
         <div>

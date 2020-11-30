@@ -28,12 +28,12 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE =  True
 SESSION_COOKIE_AGE = 60 * 30
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 LOGIN_URL = '/login/'
-CAPTCHA_CHALLENGE_FUNCT = 'captcha.helpers.math_challenge'
-CAPTCHA_FOREGROUND_COLOR = 'purple'
+CAPTCHA_CHALLENGE_FUNCT = 'captcha.helpers.random_char_challenge'
+CAPTCHA_FOREGROUND_COLOR = 'black'
 # CAPTCHA_LENGTH = 8
 # Application definition
 
