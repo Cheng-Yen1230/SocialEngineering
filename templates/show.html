@@ -22,7 +22,7 @@
             <th width="250px">信箱</th>
             {% for d in data %}
                 <tr>
-                    <td><input type="checkbox" value="{{ d.email }}"></td>
+                    <td><input type="checkbox" name="n" value="{{ d.email }}"></td>
                     <td align="center" valign="center">{{ d.get_id }}</td>
                     <td align="center" valign="center">{{ d.name }}</td>
                     <td align="center" valign="center">{{ d.email }}</td>
