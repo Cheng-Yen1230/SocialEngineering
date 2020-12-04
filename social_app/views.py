@@ -43,7 +43,6 @@ def about(request):
     return render(request, 'about.html')
 
 
-@login_required
 def index(request, num):
     try:
         if result := Email.objects.get(get_id=num):
