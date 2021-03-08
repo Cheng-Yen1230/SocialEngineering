@@ -2,119 +2,129 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
     <link rel="icon" href="https://img.icons8.com/ios-filled/72/snake.png" type="image/x-icon"/>
     {% block title %}<title>Document</title>{% endblock %}
-</head>
-<style type="text/css">
+    <style type="text/css">
+        
+        * {
+            margin: 0px;                /* 邊界0 */
+            padding: 0px;               /* 文字邊界 */
+        }
+        #nav {
+            height: 100px;              /* 導航欄高度 */
+            width: 100%;                /* 導航欄寬度 */
+            background: #00477D;
+            margin: 0 auto;             /*  上下左右  */
+            margin-bottom: 60px;       /*  邊界重疊  */
+            font-size: 20px;
+            max-width: 100%;
+        }
 
-    * {
-        margin: 0px;                /* 邊界0 */
-        padding: 0px;               /* 文字邊界 */
-    }
-    #nav {
-        height: 100px;              /* 導航欄高度 */
-        width: 100%;                /* 導航欄寬度 */
-        background: #00477D;
-        margin: 0 auto;             /*  上下左右  */
-        margin-bottom: 60px;       /*  邊界重疊  */
-        font-size: 20px;
-        max-width: 100%;
-    }
+        #nav ul {
 
-    #nav ul {
+            list-style: none;           /*  不設置樣式  */
+        }
 
-        list-style: none;           /*  不設置樣式  */
-    }
+        #nav ul li {
 
-    #nav ul li {
-        float: left;                /*  ***** 導航欄靠左 ***** */
-        width: 200px;
-        line-height: 80px;          /*    行高    */
-        text-align: center;         /*    置中    */
+            float: left;                /*  ***** 導航欄靠左 ***** */
+            width: 200px;
+            line-height: 80px;          /*    行高    */
+            text-align: center;         /*    置中    */
 
-    }
-
-
-    #nav ul li a {
-        text-decoration: none;      /*   無下滑線   */
-        color: white;
-        padding: 10px;
-        display: block;             /*    區塊     */
-    }
+        }
 
 
-    /* 在一級選單中，滑鼠放上去的樣式 */
-    #nav ul li a:hover {
-        color: cornflowerblue;
+        #nav ul li a {
 
-    }
+            text-decoration: none;      /*   無下滑線   */
+            color: white;
+            padding: 10px;
+            display: block;             /*    區塊     */
 
-    #naa {
+        }
 
-        background-color: #082567; /*#FFC0CB #B8A1CF */
-        text-align: center;
-        list-style: none;
-        z-index: 10 ! important;
-        width:100%;
-        height:120px;
-        position:absolute;
-        bottom:0;
 
-        {% block func %}
+        /* 在一級選單中，滑鼠放上去的樣式 */
+        #nav ul li a:hover {
 
-        {% endblock %}
-    }
+            color: cornflowerblue;
 
-    #naa ul {
+        }
 
-        list-style: none;           /*  不設置樣式  */
-    }
+        #naa {
 
-    #naa ul li a {
-        text-decoration: none;      /*   無下滑線   */
-        color: white;
-        padding: 5px 10px;
-        display: block;             /*    區塊     */
-    }
+            background-color: #082567; /*#FFC0CB #B8A1CF */
+            text-align: center;
+            list-style: none;
+            z-index: 10 ! important;
+            width:100%;
+            height:120px;
+            position:absolute;
+            bottom:0;
 
-    #naa ul li {
-        float: left;                /*  ***** 導航欄靠左 ***** */
-        width: 200px;
-        line-height: 90px;         /*    行高    */
-        text-align: center;         /*    置中    */
-        position: absolute;
+        }
 
-    }
+        #naa ul {
 
+            list-style: none;           /*  不設置樣式  */
+
+        }
+
+        #naa ul li a {
+
+            text-decoration: none;      /*   無下滑線   */
+            color: white;
+            padding: 5px 10px;
+            display: block;             /*    區塊     */
+
+        }
+
+        #naa ul li {
+
+            float: left;                /*  ***** 導航欄靠左 ***** */
+            width: 200px;
+            line-height: 90px;         /*    行高    */
+            text-align: center;         /*    置中    */
+            position: absolute;
+
+        }
+
+        
+        body {
+                font-family: 'Microsoft Yahei';
+                background-color: #eee;
+                padding-bottom: 145px;
+                box-sizing: border-box;
+                position: absolute;
+                width: 100%;
+                min-height: 100%;
+        }
+    
+    {% block func %}
+
+    {% endblock %}
+    
     {% block css_style %}
 
     {% endblock %}
-    body {
-            font-family: 'Microsoft Yahei';
-            background-color: #eee;
-            padding-bottom: 145px;
-            box-sizing: border-box;
-            position: absolute;
-            width: 100%;
-            min-height: 100%;
-    }
-</style>
+
+    </style>
 </head>
 <body>
-
 <div id="nav">
     <ul>
         <li><a href="{% url 'show' %}" style="font-size: 25px">社交工程</a></li>
-        <li><a href="{% url 'about' %}">About</a></li>
+        
         <li><a href="{% url 'data' %}">Background data</a></li>
     </ul>
 </div>
 {% block content %}
 
 {% endblock %}
+
 <footer>
     <div id="naa">
         <br>

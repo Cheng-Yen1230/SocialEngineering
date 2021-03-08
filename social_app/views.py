@@ -45,8 +45,9 @@ def about(request):
 
 def index(request, num):
     try:
+        from django.db.models import F
         if result := Email.objects.get(get_id=num):
-            result.times += 1
+            result.times = F('times') + 1
             result.save()
             Data.objects.create(num=result)
     except Exception as e:

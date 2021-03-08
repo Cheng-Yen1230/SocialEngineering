@@ -1,0 +1,93 @@
+* {
+    margin: 0px;                /* 邊界0 */
+    padding: 0px;               /* 文字邊界 */
+
+}
+#nav {
+    height: 125px;              /* 導航欄高度 */
+    width: 100%;                /* 導航欄寬度 */
+    background: #00477D;
+    margin: 0 auto;             /*  上下左右  */
+    margin-bottom: 60px;       /*  邊界重疊  */
+    font-size: 20px;
+    font-family: "Microsoft JhengHei UI";
+}
+
+#nav ul {
+
+    list-style: none;           /*  不設置樣式  */
+}
+
+#nav ul li {
+    float: left;                /*  ***** 導航欄靠左 ***** */
+    width: 200px;
+    line-height: 105px;          /*    行高    */
+    text-align: center;         /*    置中    */
+
+}
+
+
+#nav ul li a {
+    text-decoration: none;      /*   無下滑線   */
+    color: white;
+    padding: 10px;
+    display: block;             /*    區塊     */
+}
+
+
+/* 在一級選單中，滑鼠放上去的樣式 */
+#nav ul li a:hover {
+    color: black;
+
+}
+
+#naa {
+
+    background-color: #082567; /*#FFC0CB #B8A1CF */
+    text-align: center;
+    list-style: none;
+    z-index: 10 ! important;
+    width:100%;
+    height:125px;
+    position:absolute;
+    bottom:0;
+}
+
+#naa ul {
+
+    list-style: none;           /*  不設置樣式  */
+}
+
+#naa ul li a {
+    text-decoration: none;      /*   無下滑線   */
+    color: white;
+    padding: 5px 10px;
+    display: block;             /*    區塊     */
+}
+
+#naa ul li {
+    float: left;                /*  ***** 導航欄靠左 ***** */
+    width: 200px;
+    line-height: 100px;         /*    行高    */
+    text-align: center;         /*    置中    */
+    position: absolute;
+
+}
+
+body {
+        font-family: 'Microsoft JhengHei UI';
+        background-color: #eee;
+        padding-bottom: 145px;
+        box-sizing: border-box;
+        position: absolute;
+        width: 100%;
+        min-height: 100%;
+        text-align: center;
+}
+.cls{
+    text-align: center;
+}
+#id_captcha_1{
+    width: 80px;
+    height: 30px;
+}

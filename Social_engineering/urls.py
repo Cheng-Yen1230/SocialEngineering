@@ -19,12 +19,10 @@ from social_app import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('mysite/', include('social_app.urls')),
-    path('show/', include('social_app.urls')),   # email
-    path('data/', include('social_app.urls')),
+    path('mysite', include('social_app.urls')),
+    path('show/', include('social_app.urls')),
     path('login/', include('social_app.urls')),
-    path('about/', views.about, name='about'),
-    path('captcha/', include('captcha.urls'))
+    path('captcha/', include('captcha.urls')),
 
 
 ]

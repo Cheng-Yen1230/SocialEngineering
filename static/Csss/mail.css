@@ -1,0 +1,15 @@
+div{
+    color:black;
+}
+#a{
+    background-color: sandybrown;
+    width:95px;
+    height:45px;
+    border:2px;
+    color: black;
+    font-size:14px;
+    border-radius: 5px;
+}
+span{
+    color: red;
+}
