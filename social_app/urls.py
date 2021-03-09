@@ -3,7 +3,6 @@ from django.urls import path
 
 urlpatterns = [
 
-    path('<int:num>/test', views.index, name='index'),
     path('data', views.data, name='data'),
     path('email', views.show, name='show'),
     path('send', views.mail, name='mail'),
@@ -12,6 +11,6 @@ urlpatterns = [
     path('select', views.select, name='select'),
     path('remail', views.remail, name='remail'),
     path('personal/<int:num>', views.personal, name='content'),
-    path('', views.login, name='login'),
+
 
 ]

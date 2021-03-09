@@ -19,10 +19,9 @@ from social_app import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('mysite', include('social_app.urls')),
+    path('mysite/<int:num>/test', views.index, name='index'),
+    path('login/', views.login, name='login'),
     path('show/', include('social_app.urls')),
-    path('login/', include('social_app.urls')),
     path('captcha/', include('captcha.urls')),
-
 
 ]

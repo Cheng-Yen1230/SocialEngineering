@@ -169,7 +169,7 @@ def select(request):
 # 後台數據
 @login_required
 def data(request):
-    bg_data = Data.objects.all()
+    bg_data = Data.objects.select_related('num')
     return render(request, 'data.html', locals())
 
 
