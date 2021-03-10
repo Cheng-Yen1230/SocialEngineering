@@ -18,8 +18,7 @@ from django.urls import path, include
 from social_app import views
 
 urlpatterns = [
-    
-    path('*****/', admin.site.urls),
+    path('admin/', admin.site.urls),
     path('mysite/<int:num>/test', views.index, name='index'),
     path('login/', views.login, name='login'),
     path('show/', include('social_app.urls')),

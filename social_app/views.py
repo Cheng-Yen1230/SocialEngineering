@@ -169,7 +169,25 @@ def select(request):
 # 後台數據
 @login_required
 def data(request):
-    bg_data = Data.objects.select_related('num')
+    response = request.method
+    if response == "GET":
+        bg_data = Data.objects.select_related('num')
+    else:
+        
+        from django.http import HttpResponse
+        import csv
+        import codecs
+
+        response = HttpResponse(content_type='text/csv')
+        response.write(codecs.BOM_UTF8)
+        response['Content-Disposition'] = 'attachment; filename=somefilename.csv'
+        writer = csv.writer(response)
+        writer.writerow(['流水號', '姓名', '信箱', '訪問時間'])
+        d = Data.objects.all()
+        for i in d:
+            writer.writerow([i.num.get_id, i.num.name, i.num.email, i.pub_time])
+
+        return response
     return render(request, 'data.html', locals())
 
 

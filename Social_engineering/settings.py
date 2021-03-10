@@ -15,20 +15,20 @@ import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-pwd = '********'
+pwd = 'nltxdcaufofltqmk'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '********'
+SECRET_KEY = 'da_r9zoh*2*^&o%he77kgrw15&=%$n)z3j#x^_rt2m^z6vk)rh'
 
 SESSION_EXPIRE_AT_BROWSER_CLOSE =  True
 
 SESSION_COOKIE_AGE = 60 * 30
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 LOGIN_URL = '/login/'
@@ -120,13 +120,13 @@ EMAIL_PORT = 587  # TLS通訊埠號
 
 EMAIL_USE_TLS = True  # 開啟TLS(傳輸層安全性)
 
-EMAIL_HOST_USER = '信箱'  # 寄件者電子郵件
+EMAIL_HOST_USER = 'harry.pg123123@gmail.com'  # 寄件者電子郵件
 
 EMAIL_HOST_PASSWORD = pwd  # Gmail應用程式密碼
 
 LANGUAGE_CODE = 'zh-Hant'
 
-DEFAULT_FROM_EMAIL = "蝦皮購物 <信箱>"
+DEFAULT_FROM_EMAIL = "蝦皮購物 <harry.pg123123@gmail.com>"
 
 TIME_ZONE = 'Asia/Taipei'
 
