@@ -173,8 +173,7 @@ def data(request):
     if response == "GET":
         bg_data = Data.objects.select_related('num')
     else:
-        
-        from django.http import HttpResponse
+       
         import csv
         import codecs
 
